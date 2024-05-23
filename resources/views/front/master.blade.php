@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Ogani Template">
+    <meta name="_token" content="{{ csrf_token() }}">
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -120,6 +121,9 @@
     <script src="{{ asset('admin/js/mixitup.min.js')}}"></script>
     <script src="{{ asset('admin/js/owl.carousel.min.js')}}"></script>
     <script src="{{ asset('admin/js/main.js')}}"></script>
+
+
+    @yield('scripts')
 
 
 
