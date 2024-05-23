@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="{{ asset('admin/css/owl.carousel.min.css')}}" type="text/css">
     <link rel="stylesheet" href="{{ asset('admin/css/slicknav.min.css')}}" type="text/css">
     <link rel="stylesheet" href="{{ asset('admin/css/style.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('admin/css/myStyle.css')}}" type="text/css">
 </head>
 
 <body>

@@ -12,6 +12,11 @@ class Product extends Model
     protected $fillable = ['title', 'slug', 'price', 'thumbnail', 'category_id', 'user_id'];
 
 
+    public function getPrice()
+    {
+        return number_format($this->price / 100, 2, ',', ',');
+    }
+
 
     public function user()
     {

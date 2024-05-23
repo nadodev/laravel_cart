@@ -1,0 +1,9 @@
+body {
+    position: relative;
+}
+.ajax-message {
+    position: fixed;
+    bottom: 0;
+    right: 10px;
+    z-index: 999;
+}

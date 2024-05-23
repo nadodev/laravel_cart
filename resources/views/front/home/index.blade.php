@@ -73,7 +73,18 @@
             contentType: false,
             processData: false,
             success: (response ) => {
-                console.log(response)
+              if( response.succes ) {
+                let message = "<div class='alert alert-success ajax-message'>" +  response.message + "</div>";
+
+                $("body").prepend(message);
+
+
+                setTimeout( (e) => {
+                    $("body .ajax-message").fadeOut();
+                    $("body .ajax-message").remove();
+                }, 2500)
+
+              }
             }
            })
         }

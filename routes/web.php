@@ -11,4 +11,4 @@ Route::get('/product/{slug}', [ProductController::class, 'show'])->name('product
 
 
 
-Route::post('/add/cart', [CartController::class, 'cart'])->name('add_to_cart');
+Route::post('/add/cart', [CartController::class, 'addToCart'])->name('add_to_cart');
