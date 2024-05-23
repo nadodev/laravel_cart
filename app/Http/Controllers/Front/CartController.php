@@ -15,5 +15,6 @@ class CartController extends Controller
     {
 
        return ModelsCart::add($request);
+    //    return Cart::destroy();;
     }
 }

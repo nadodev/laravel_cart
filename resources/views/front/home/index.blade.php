@@ -79,9 +79,18 @@
                 $("body").prepend(message);
 
 
+
+
+
+
                 setTimeout( (e) => {
                     $("body .ajax-message").fadeOut();
                     $("body .ajax-message").remove();
+
+                    location.reload();
+
+
+
                 }, 2500)
 
               }
