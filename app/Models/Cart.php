@@ -15,8 +15,15 @@ class Cart extends Model
     public static function add(Request $request)
     {
         $product = Product::where('slug', $request->slug)->first();
-        FacadesCart::add($product->id, $product->title, 1, $product->price, ['slug' => $product->slug]);
+        FacadesCart::instance($request->card_type)->add($product->id, $product->title, 1, $product->price, ['slug' => $product->slug])->associate(Product::class);
 
-        return response()->json(['succes' => 1, 'message' => 'Product has been added to cart']);
+        if($request->card_type == 'whitelist') {
+            return response()->json(['succes' => 1, 'message' => 'whitelist has been added to cart']);
+        }else{
+
+            return response()->json(['succes' => 1, 'message' => 'Product has been added to cart']);
+        }
     }
 }
+
+

@@ -29,11 +29,13 @@ class AppServiceProvider extends ServiceProvider
 
 
             $cartItems = FacadesCart::instance('default')->count();
-            $cartSubTotal = number_format((int) FacadesCart::subtotal() , 2, ',',',');
+            $whiteListCount = FacadesCart::instance('whitelist')->count();
+            $cartSubTotal = number_format((int) FacadesCart::instance('default')->subtotal() , 2, ',',',');
 
             $view->with('main_categories', $main_categories);
             $view->with('cartItems', $cartItems);
             $view->with('totalPrice', $cartSubTotal);
+            $view->with('whiteListCount', $whiteListCount);
         });
     }
 }

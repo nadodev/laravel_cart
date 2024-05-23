@@ -13,7 +13,6 @@ class CartController extends Controller
 {
     public function addToCart(AddToCartRequest $request)
     {
-
        return ModelsCart::add($request);
     //    return Cart::destroy();;
     }

@@ -29,9 +29,9 @@
                 <div class="featured__item">
                     <div class="featured__item__pic set-bg" data-setbg="{{ asset('storage/'. $product->thumbnail) }}">
                         <ul class="featured__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                            <li><a onclick="event.preventDefault();Cart.add('{{  $product->slug }}', 'whitelist');" href="#"><i class="fa fa-heart"></i></a></li>
                             <li>
-                                <a onclick="event.preventDefault();Cart.add('{{  $product->slug }}');" href="#">
+                                <a onclick="event.preventDefault();Cart.add('{{  $product->slug }}', 'default');" href="#">
                                     <i class="fa fa-shopping-cart"></i>
                                 </a>
                             </li>
@@ -58,10 +58,11 @@
 @section('scripts')
 <script>
     class Cart {
-        static add = (slug) => {
+        static add = (slug, card_type) => {
 
             let formData = new FormData();
             let token = $("meta[name='_token'").attr('content')
+            formData.append('card_type', card_type);
             formData.append('slug', slug);
             formData.append('_token', token);
 
@@ -78,18 +79,11 @@
 
                 $("body").prepend(message);
 
-
-
-
-
-
                 setTimeout( (e) => {
                     $("body .ajax-message").fadeOut();
                     $("body .ajax-message").remove();
 
                     location.reload();
-
-
 
                 }, 2500)
 
